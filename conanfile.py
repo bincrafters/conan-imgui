@@ -31,15 +31,21 @@ class IMGUIConan(ConanFile):
         extracted_dir = self.name + "-" + self.version
         os.rename(extracted_dir, self.source_subfolder)
 
-    def build(self):
+    def configure_cmake(self):
         cmake = CMake(self)
         if self.settings.os != 'Windows':
             cmake.definitions['CMAKE_POSITION_INDEPENDENT_CODE'] = self.options.fPIC
         cmake.configure()
+        return cmake
+
+    def build(self):
+        cmake = self.configure_cmake()
         cmake.build()
-        cmake.install()
 
     def package(self):
+        cmake = self.configure_cmake()
+        cmake.install()
+        cmake.patch_config_paths()
         self.copy(pattern="LICENSE.txt", dst="license", src=self.source_subfolder)
 
     def package_info(self):
