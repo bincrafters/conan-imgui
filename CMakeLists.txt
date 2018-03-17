@@ -5,6 +5,9 @@ include(conanbuildinfo.cmake)
 conan_basic_setup()
 
 set(CMAKE_VERBOSE_MAKEFILE TRUE)
+if (WIN32 AND MSVC AND BUILD_SHARED_LIBS)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+endif(WIN32 AND MSVC AND BUILD_SHARED_LIBS)
 
 set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/source_subfolder)
 set(EXTRA_FONTS_DIR ${SOURCE_DIR}/extra_fonts)
