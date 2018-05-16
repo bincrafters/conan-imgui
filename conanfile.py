@@ -12,6 +12,7 @@ class IMGUIConan(ConanFile):
     url = "https://github.com/bincrafters/conan-imgui"
     homepage = "https://github.com/ocornut/imgui"
     description = "Bloat-free Immediate Mode Graphical User interface for C++ with minimal dependencies"
+    author = "Bincrafters <bincrafters@gmail.com>"
     license = "MIT"
     exports = ["LICENSE.md"]
     exports_sources = ["CMakeLists.txt", "imgui_demo.h", "imgui_demo.cpp"]
@@ -26,15 +27,12 @@ class IMGUIConan(ConanFile):
             del self.options.fPIC
 
     def source(self):
-        source_url = "https://github.com/ocornut/imgui"
-        tools.get("{0}/archive/v{1}.tar.gz".format(source_url, self.version))
+        tools.get("{0}/archive/v{1}.tar.gz".format(self.homepage, self.version))
         extracted_dir = self.name + "-" + self.version
         os.rename(extracted_dir, self.source_subfolder)
 
     def configure_cmake(self):
         cmake = CMake(self)
-        if self.settings.os != 'Windows':
-            cmake.definitions['CMAKE_POSITION_INDEPENDENT_CODE'] = self.options.fPIC
         cmake.configure()
         return cmake
 
@@ -45,8 +43,7 @@ class IMGUIConan(ConanFile):
     def package(self):
         cmake = self.configure_cmake()
         cmake.install()
-        cmake.patch_config_paths()
-        self.copy(pattern="LICENSE.txt", dst="license", src=self.source_subfolder)
+        self.copy(pattern="LICENSE.txt", dst="licenses", src=self.source_subfolder)
 
     def package_info(self):
         self.cpp_info.libs = tools.collect_libs(self)
