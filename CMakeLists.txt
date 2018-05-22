@@ -10,18 +10,17 @@ if (WIN32 AND MSVC AND BUILD_SHARED_LIBS)
 endif(WIN32 AND MSVC AND BUILD_SHARED_LIBS)
 
 set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/source_subfolder)
-set(EXTRA_FONTS_DIR ${SOURCE_DIR}/extra_fonts)
+set(EXTRA_FONTS_DIR ${SOURCE_DIR}/misc/fonts)
 
 set(SOURCE_FILES ${SOURCE_DIR}/imgui_draw.cpp
                  ${SOURCE_DIR}/imgui.cpp
-                 ${CMAKE_CURRENT_SOURCE_DIR}/imgui_demo.cpp)
+                 ${SOURCE_DIR}/imgui_demo.cpp)
 set(HEADER_FILES ${SOURCE_DIR}/imconfig.h
                  ${SOURCE_DIR}/imgui_internal.h
                  ${SOURCE_DIR}/imgui.h
                  ${SOURCE_DIR}/stb_rect_pack.h
                  ${SOURCE_DIR}/stb_textedit.h
-                 ${SOURCE_DIR}/stb_truetype.h
-                 ${CMAKE_CURRENT_SOURCE_DIR}/imgui_demo.h)
+                 ${SOURCE_DIR}/stb_truetype.h)
 set(EXTRA_FONTS_FILES ${EXTRA_FONTS_DIR}/Karla-Regular.ttf
                       ${EXTRA_FONTS_DIR}/ProggyTiny.ttf
                       ${EXTRA_FONTS_DIR}/ProggyClean.ttf
@@ -46,5 +45,5 @@ install(FILES ${HEADER_FILES}
         DESTINATION ${CMAKE_INSTALL_PREFIX}/include
         PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ)
 install(FILES ${EXTRA_FONTS_FILES}
-        DESTINATION ${CMAKE_INSTALL_PREFIX}/extra_fonts
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/misc/fonts
         PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ)
