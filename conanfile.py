@@ -8,7 +8,7 @@ import os
 
 class IMGUIConan(ConanFile):
     name = "imgui"
-    version = "1.62"
+    version = "1.64"
     url = "https://github.com/bincrafters/conan-imgui"
     homepage = "https://github.com/ocornut/imgui"
     description = "Bloat-free Immediate Mode Graphical User interface for C++ with minimal dependencies"
