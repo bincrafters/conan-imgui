@@ -1,5 +1,6 @@
+#include <cstdio>
+#include <cstdlib>
 #include "imgui.h"
-#include <stdio.h>
 
 int main(int, char**)
 {
@@ -29,5 +30,5 @@ int main(int, char**)
 
     printf("DestroyContext()\n");
     ImGui::DestroyContext(context);
-    return 0;
+    return EXIT_SUCCES;
 }
