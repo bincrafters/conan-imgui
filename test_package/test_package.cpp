@@ -30,5 +30,5 @@ int main(int, char**)
 
     printf("DestroyContext()\n");
     ImGui::DestroyContext(context);
-    return EXIT_SUCCES;
+    return EXIT_SUCCESS;
 }
