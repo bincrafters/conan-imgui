@@ -46,5 +46,5 @@ class IMGUIConan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.srcdirs = ["misc/bindings", ]
+        self.cpp_info.srcdirs = ["misc", ]
         self.cpp_info.libs = tools.collect_libs(self)
