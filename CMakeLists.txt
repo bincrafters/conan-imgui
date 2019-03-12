@@ -14,7 +14,6 @@ set(EXTRA_FONTS_DIR ${SOURCE_DIR}/misc/fonts)
 
 set(SOURCE_FILES ${SOURCE_DIR}/imgui_draw.cpp
                  ${SOURCE_DIR}/imgui.cpp
-                 ${SOURCE_DIR}/imgui_demo.cpp
                  ${SOURCE_DIR}/imgui_widgets.cpp)
 set(HEADER_FILES ${SOURCE_DIR}/imconfig.h
                  ${SOURCE_DIR}/imgui_internal.h
