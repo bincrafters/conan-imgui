@@ -18,9 +18,9 @@ set(SOURCE_FILES ${SOURCE_DIR}/imgui_draw.cpp
 set(HEADER_FILES ${SOURCE_DIR}/imconfig.h
                  ${SOURCE_DIR}/imgui_internal.h
                  ${SOURCE_DIR}/imgui.h
-                 ${SOURCE_DIR}/stb_rect_pack.h
-                 ${SOURCE_DIR}/stb_textedit.h
-                 ${SOURCE_DIR}/stb_truetype.h)
+                 ${SOURCE_DIR}/imstb_rectpack.h
+                 ${SOURCE_DIR}/imstb_textedit.h
+                 ${SOURCE_DIR}/imstb_truetype.h)
 set(EXTRA_FONTS_FILES ${EXTRA_FONTS_DIR}/Karla-Regular.ttf
                       ${EXTRA_FONTS_DIR}/ProggyTiny.ttf
                       ${EXTRA_FONTS_DIR}/ProggyClean.ttf
