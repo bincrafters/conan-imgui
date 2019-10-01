@@ -2,7 +2,7 @@
 
 | Bintray | Windows | Linux & macOS |
 |:--------:|:---------:|:-----------------:|
-|[![Download](https://api.bintray.com/packages/bincrafters/public-conan/imgui%3Abincrafters/images/download.svg)](https://bintray.com/bincrafters/public-conan/imgui%3Abincrafters/_latestVersion)|[![Build status](https://ci.appveyor.com/api/projects/status/github/bincrafters/conan-imgui?svg=true)](https://ci.appveyor.com/project/BinCrafters/conan-imgui)|[![Build Status](https://travis-ci.org/bincrafters/conan-imgui.svg?)](https://travis-ci.org/bincrafters/conan-imgui)|
+|[![Download](https://api.bintray.com/packages/bincrafters/public-conan/imgui%3Abincrafters/images/download.svg)](https://bintray.com/bincrafters/public-conan/imgui%3Abincrafters/_latestVersion)|[![Build status](https://ci.appveyor.com/api/projects/status/github/bincrafters/conan-imgui?svg=true)](https://ci.appveyor.com/project/BinCrafters/conan-imgui)|[![Build Status](https://travis-ci.com/bincrafters/conan-imgui.svg?)](https://travis-ci.com/bincrafters/conan-imgui)|
 
 ## Conan.io Information
 
