@@ -10,24 +10,16 @@ if (WIN32 AND MSVC AND BUILD_SHARED_LIBS)
 endif(WIN32 AND MSVC AND BUILD_SHARED_LIBS)
 
 set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/source_subfolder)
-set(EXTRA_FONTS_DIR ${SOURCE_DIR}/misc/fonts)
+set(MISC_DIR ${SOURCE_DIR}/misc)
+set(EXTRA_FONTS_DIR ${MISC_DIR}/fonts)
 
-set(SOURCE_FILES ${SOURCE_DIR}/imgui_draw.cpp
-                 ${SOURCE_DIR}/imgui.cpp
-                 ${SOURCE_DIR}/imgui_demo.cpp
-                 ${SOURCE_DIR}/imgui_widgets.cpp)
-set(HEADER_FILES ${SOURCE_DIR}/imconfig.h
-                 ${SOURCE_DIR}/imgui_internal.h
-                 ${SOURCE_DIR}/imgui.h
-                 ${SOURCE_DIR}/imstb_rectpack.h
-                 ${SOURCE_DIR}/imstb_textedit.h
-                 ${SOURCE_DIR}/imstb_truetype.h)
-set(EXTRA_FONTS_FILES ${EXTRA_FONTS_DIR}/Karla-Regular.ttf
-                      ${EXTRA_FONTS_DIR}/ProggyTiny.ttf
-                      ${EXTRA_FONTS_DIR}/ProggyClean.ttf
-                      ${EXTRA_FONTS_DIR}/DroidSans.ttf
-                      ${EXTRA_FONTS_DIR}/Roboto-Medium.ttf
-                      ${EXTRA_FONTS_DIR}/Cousine-Regular.ttf)
+file(GLOB SOURCE_FILES ${SOURCE_DIR}/*.cpp)
+file(GLOB HEADER_FILES ${SOURCE_DIR}/*.h)
+file(GLOB EXTRA_FONTS_FILES ${EXTRA_FONTS_DIR}/*.ttf)
+if (MSVC)
+        file(GLOB EXTRA_NATVIS_FILES ${MISC_DIR}/natvis/*.natvis)
+endif()
+
 set(BINARY_TO_COMPRESSED_BIN binary_to_compressed_c)
 
 add_executable(${BINARY_TO_COMPRESSED_BIN} ${EXTRA_FONTS_DIR}/binary_to_compressed_c.cpp)
@@ -48,3 +40,8 @@ install(FILES ${HEADER_FILES}
 install(FILES ${EXTRA_FONTS_FILES}
         DESTINATION ${CMAKE_INSTALL_PREFIX}/misc/fonts
         PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ)
+if (MSVC)
+        install(FILES ${EXTRA_NATVIS_FILES}
+                DESTINATION ${CMAKE_INSTALL_PREFIX}/misc/natvis
+                PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ)
+endif()
