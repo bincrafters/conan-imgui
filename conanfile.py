@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import os
 from conans import ConanFile, CMake, tools
 
@@ -10,7 +8,6 @@ class IMGUIConan(ConanFile):
     url = "https://github.com/bincrafters/conan-imgui"
     homepage = "https://github.com/ocornut/imgui"
     description = "Bloat-free Immediate Mode Graphical User interface for C++ with minimal dependencies"
-    author = "Bincrafters <bincrafters@gmail.com>"
     topics = ("conan", "imgui", "gui", "graphical")
     license = "MIT"
     exports = ["LICENSE.md"]
